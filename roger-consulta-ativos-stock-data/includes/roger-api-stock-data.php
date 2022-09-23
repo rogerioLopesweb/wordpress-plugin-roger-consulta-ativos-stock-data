@@ -7,10 +7,8 @@ function roger_consulta_api_ativo($simbol){
    $options = get_option('roger_stock_plugin_options');
    $api_key = $options['roger_stock_api_key']; //Chave da APi 
    //retorna os dados da consulta
-     return roger_consulta_api_base_alphavantage_stock($api_key, $simbol);
-   
+   return roger_consulta_api_base_alphavantage_stock($api_key, $simbol);
 }
-
 #Consulta a base api alphavantage stock
 function roger_consulta_api_base_alphavantage_stock($api_key, $simbol){
    //EndPoint: url da base alphavantege busca os dados da empresa  do ativo
