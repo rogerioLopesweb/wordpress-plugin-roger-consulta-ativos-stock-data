@@ -32,10 +32,10 @@ function roger_stock_settings() {
 add_action( 'admin_init', 'roger_stock_settings' );
 #Monta o texto para exibicao na sessao, este texto tem a explicacao de como congurar o plugin
 function  roger_stock_plugin_section_text() {
-	$texto = "<h4>Alphavantage Stock Base API</h4>";
+    $texto = "<h4>Alphavantage Stock Base API</h4>";
     $texto .= '<p><b>(i)</b> Para ter acesso a API da Alphavantage é necessário criar uma chave em <a href="https://www.alphavantage.co/support/#api-key" target="_blank">https://www.alphavantage.co/support/#api-key</a>.</p>';
     $texto .= "<p><b>(ii)</b> Para este teste da roger foi gerada a chave abaixo que atualmente não tem custo pois os dados são gerados diariamente.</p>";
-    $texto .= "<h3>Chave Base Alphavantage: AIMZ9XVZVNVEW68Q</h3>";
+    $texto .= "<h3>Chave Base Alphavantage: XPTO</h3>";
     $texto .= "<h6>Alguns Ativos: AAPL, TSLA, AMC, AMD, CEI, GME, COMP, AMZN, API</h6>";
     $texto .= "Observações<br>";
     $texto .= "*Em caso de lentidão ou oscilação da API o card não carrega. <br>";
@@ -44,7 +44,6 @@ function  roger_stock_plugin_section_text() {
     echo $texto;
     echo "<hr>";
 }
-
 #Campo que o usuario irá informar a chave da Api
 function roger_stock_plugin_setting_api_key() {
     $options = get_option( 'roger_stock_plugin_options' );
@@ -58,5 +57,3 @@ function roger_stock_plugin_setting_combo_view() {
     echo "<option value='roger_shortcode_view' ". selected( $options['roger_card_view'], 'roger_shortcode_view' ) ." >Usar shorcode</option>";
     echo "</select>";
 }
-
-
