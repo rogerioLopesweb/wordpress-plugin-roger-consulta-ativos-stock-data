@@ -1,9 +1,9 @@
 <?php
-#funcao verifica o que foi configurado no admin Menu>Configurações>Suno Nasdaq
+#funcao verifica o que foi configurado no admin Menu>Configurações>Roger Ativos
 #Na pagina de configuração do plugin tem duas opçoes de base para consulta
 #Cada opção te sua chave
 function roger_consulta_api_ativo($simbol){
-   //pega os cadastrado no admin em Configurações Suno Nasdaq
+   //pega os cadastrado no admin em Configurações Roger Ativos
    $options = get_option('roger_stock_plugin_options');
    $api_key = $options['roger_stock_api_key']; //Chave da APi 
    //retorna os dados da consulta
@@ -116,12 +116,12 @@ function roger_consulta_api_base_alphavantage_stock($api_key, $simbol){
 	 $volume = $valores[4]; // valume de negociacoes no dia
 	 $valor_variacao  =  $close - $closeFechamentoDiaAnterior; //calcula o valor de diferenca, da data atual com data de fechamento anterior
 	 $valor_porcentagem =  ($valor_variacao / $closeFechamentoDiaAnterior) * 100; // calcula o valor de direnca em porcentagem
-	 if($close < $open){
+	 if($closeFechamentoDiaAnterior < $close){
 	 	$situacao_final = "-"; 
 	 }else{
 	 	$situacao_final = "+"; 
 	 }
-	//carrado o array para retorno
+     //carrado o array para retorno
      $dados['simbolo'] = $simbol;
      $dados['nome'] = $nome;
      $dados['data_consulta'] = $data_consulta;
@@ -141,6 +141,6 @@ function roger_consulta_api_base_alphavantage_stock($api_key, $simbol){
 Segue abaixo a documentacao e apis com chaves utilizadas neste plugin
 Base Alphavantage
 -https://www.alphavantage.co/documentation/
--https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=AAPL&apikey=AIMZ9XVZVNVEW68Q
--https://www.alphavantage.co/query?function=OVERVIEW&symbol=AAPL&apikey=AIMZ9XVZVNVEW68Q
+-https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=AAPL&apikey=XPTO
+-https://www.alphavantage.co/query?function=OVERVIEW&symbol=AAPL&apikey=XPTO
 */
